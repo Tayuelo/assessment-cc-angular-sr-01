@@ -1,0 +1,18 @@
+<div>
+  <mat-card class="battle-card-player" [ngClass]="{ centralized: !monster }">
+    <ng-container *ngIf="monster; else noMonster">
+      <img class="mat-card-image" alt="Monster image" [src]="monster.imageUrl"/>
+      <p class="subtitle">{{ title }}</p>
+      <mat-divider class="divider"></mat-divider>
+      <div class="stats-section">
+        <app-monster-stat [title]="'HP'" [stat]="monster.hp"></app-monster-stat>
+        <app-monster-stat [title]="'Attack'" [stat]="monster.attack"></app-monster-stat>
+        <app-monster-stat [title]="'Defense'" [stat]="monster.defense"></app-monster-stat>
+        <app-monster-stat [title]="'Speed'" [stat]="monster.speed"></app-monster-stat>
+      </div>
+    </ng-container>
+    <ng-template #noMonster>
+      <p class="title">{{ title }}</p>
+    </ng-template>
+  </mat-card>
+</div>
